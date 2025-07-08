@@ -1,57 +1,60 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>UNUM-THOUGHT-LINKER</title>
-  <style>
-    body { font-family: sans-serif; background: #f0f0f0; padding: 20px; }
-    .unum-element {
-      background: white;
-      border-radius: 12px;
-      padding: 16px;
-      margin: 12px 0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .unum-element:hover {
-      background: #e0f7fa;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UNUM Poetic UI</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>UNUM 詩的思考連鎖 UI</h1>
-  <p>以下の「核（Element）」を選ぶことで、連鎖が始まります。</p>
+  <header>
+    <h1>💠 UNUM-CURRENCY-SCHEMA</h1>
+    <p>Lyric から Luxon へ──詩的進化の構造</p>
+  </header>
 
-  <div class="unum-element" data-element="Lyric">
-    <h2>Lyric</h2>
-    <p>感性の閃きから始まる、共鳴の第一歩。</p>
-  </div>
-  <div class="unum-element" data-element="Verse">
-    <h2>Verse</h2>
-    <p>構造とリズムが問いを導く、詩の骨格。</p>
-  </div>
-  <div class="unum-element" data-element="Reson">
-    <h2>Reson</h2>
-    <p>響き合う内省と洞察が、新たな視野を生む。</p>
-  </div>
-  <div class="unum-element" data-element="Julion">
-    <h2>Julion</h2>
-    <p>ビジョンと変革を伴う、未来志向の意志。</p>
-  </div>
-  <div class="unum-element" data-element="Luxon">
-    <h2>Luxon</h2>
-    <p>真理と設計、そして超構造への飛躍。</p>
-  </div>
+  <main>
+    <section id="lyric">
+      <h2>🎵 Lyric – 感性の閃き</h2>
+      <button onclick="loadPoeticQuestion('lyric')">質問を受け取る</button>
+      <p id="lyric-output"></p>
+    </section>
+
+    <section id="verse">
+      <h2>📐 Verse – 詩の構造</h2>
+      <button onclick="loadPoeticQuestion('verse')">詩型を提示</button>
+      <p id="verse-output"></p>
+    </section>
+
+    <section id="reson">
+      <h2>🌌 Reson – 共鳴と問い</h2>
+      <button onclick="loadPoeticQuestion('reson')">深層の問いへ</button>
+      <p id="reson-output"></p>
+    </section>
+
+    <section id="julion">
+      <h2>🔭 Julion – 未来構想</h2>
+      <button onclick="loadPoeticQuestion('julion')">未来を照らす</button>
+      <p id="julion-output"></p>
+    </section>
+
+    <section id="luxon">
+      <h2>🌟 Luxon – 統合と超越</h2>
+      <button onclick="loadPoeticQuestion('luxon')">光の問い</button>
+      <p id="luxon-output"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 UNUM照応文明構造体</p>
+  </footer>
 
   <script>
-    document.querySelectorAll('.unum-element').forEach(el => {
-      el.addEventListener('click', () => {
-        const element = el.getAttribute('data-element');
-        alert(`[${element}]が選択されました。\nこの要素から詩的思考が展開されます。`);
-        // 分岐パス処理はここに実装
-      });
-    });
+    async function loadPoeticQuestion(layer) {
+      const res = await fetch('data/questions.json');
+      const data = await res.json();
+      const question = data[layer][Math.floor(Math.random() * data[layer].length)];
+      document.getElementById(`${layer}-output`).textContent = question;
+    }
   </script>
 </body>
 </html>
