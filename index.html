@@ -2,11 +2,56 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>UNUM-CURRENCY-SCHEMA</title>
-  <link rel="manifest" href="manifest.json">
+  <title>UNUM-THOUGHT-LINKER</title>
+  <style>
+    body { font-family: sans-serif; background: #f0f0f0; padding: 20px; }
+    .unum-element {
+      background: white;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 12px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .unum-element:hover {
+      background: #e0f7fa;
+    }
+  </style>
 </head>
 <body>
-  <h1>ようこそ、UNUM Currency Schema へ</h1>
-  <p>詩的通貨構造の設計図がここに芽吹く。</p>
+  <h1>UNUM 詩的思考連鎖 UI</h1>
+  <p>以下の「核（Element）」を選ぶことで、連鎖が始まります。</p>
+
+  <div class="unum-element" data-element="Lyric">
+    <h2>Lyric</h2>
+    <p>感性の閃きから始まる、共鳴の第一歩。</p>
+  </div>
+  <div class="unum-element" data-element="Verse">
+    <h2>Verse</h2>
+    <p>構造とリズムが問いを導く、詩の骨格。</p>
+  </div>
+  <div class="unum-element" data-element="Reson">
+    <h2>Reson</h2>
+    <p>響き合う内省と洞察が、新たな視野を生む。</p>
+  </div>
+  <div class="unum-element" data-element="Julion">
+    <h2>Julion</h2>
+    <p>ビジョンと変革を伴う、未来志向の意志。</p>
+  </div>
+  <div class="unum-element" data-element="Luxon">
+    <h2>Luxon</h2>
+    <p>真理と設計、そして超構造への飛躍。</p>
+  </div>
+
+  <script>
+    document.querySelectorAll('.unum-element').forEach(el => {
+      el.addEventListener('click', () => {
+        const element = el.getAttribute('data-element');
+        alert(`[${element}]が選択されました。\nこの要素から詩的思考が展開されます。`);
+        // 分岐パス処理はここに実装
+      });
+    });
+  </script>
 </body>
 </html>
