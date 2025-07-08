@@ -1,0 +1,16 @@
+{
+  "name": "UNUM Currency Schema",
+  "short_name": "UNUM",
+  "start_url": "/UNUM-CURRENCY-SCHEMA/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "description": "UNUM通貨スキーマ構造体",
+  "icons": [
+    {
+      "src": "/UNUM-CURRENCY-SCHEMA/icon.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
